@@ -45,7 +45,7 @@ public class BarCardTwo extends CardController {
         super(card);
 
         mContext = context;
-        mChart = (HorizontalBarChartView) card.findViewById(R.id.chart);
+        mChart = (HorizontalBarChartView) card.findViewById(R.id.chart1);
         mTextViewValue = (TextView) card.findViewById(R.id.value);
 
         Typeface typeface = Typeface.createFromAsset(context.getAssets(), "OpenSans-Semibold.ttf");

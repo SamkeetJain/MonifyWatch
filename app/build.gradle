@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.sarl.monifywatch"
         minSdkVersion 16
@@ -49,6 +49,8 @@ dependencies {
         transitive = true
         exclude module: "fastadapter"
     }
+
+
     // icon fonts used inside the sample
     // https://github.com/mikepenz/Android-Iconics
     compile 'com.mikepenz:material-design-iconic-typeface:2.2.0.1@aar'

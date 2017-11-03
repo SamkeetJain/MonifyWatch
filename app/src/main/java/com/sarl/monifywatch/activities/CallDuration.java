@@ -2,15 +2,18 @@ package com.sarl.monifywatch.activities;
 
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.provider.SyncStateContract;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.sarl.monifywatch.R;
-import com.sarl.monifywatch.barchart.BarCardTwo;
 import com.sarl.monifywatch.linechart.LineCardOne;
-import com.sarl.monifywatch.stackedchart.StackedCardOne;
+import com.sarl.monifywatch.linechart.LineCardThree;
+import com.sarl.monifywatch.linechart.LineCardTwo;
 
 import org.json.JSONArray;
 
@@ -20,21 +23,22 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class SMSActivity extends AppCompatActivity {
+public class CallDuration extends AppCompatActivity {
 
-    private String smsEndpoint = "http://13.127.4.103/hacakaton/smsget.php";
+    private String contactEndpoint = "http://13.127.4.103/hacakaton/contactsget.php";
+    private String callLogsEndpoint = "http://13.127.4.103/hacakaton/callrecordget.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sms);
-        CardView cardView = (CardView) findViewById(R.id.chart_card);
-        StackedCardOne stackedCardOne = new StackedCardOne(cardView);
-        stackedCardOne.init();
+        setContentView(R.layout.activity_call_duration);
+        CardView cardView = (CardView) findViewById(R.id.call_chart_card);
+        LineCardThree lineCardThree = new LineCardThree(cardView, getApplicationContext());
+        lineCardThree.init();
 
-        CardView cardView1 = (CardView) findViewById(R.id.chart_card1);
-        BarCardTwo barCardTwo = new BarCardTwo(cardView1, getApplicationContext());
-        barCardTwo.init();
+        CardView cardView1 = (CardView) findViewById(R.id.sms_chart_card);
+        LineCardOne lineCardOne = new LineCardOne(cardView1, getApplicationContext());
+        lineCardOne.init();
     }
 
     private class CallsPut extends AsyncTask<Void, Void, Integer> {
@@ -45,7 +49,7 @@ public class SMSActivity extends AppCompatActivity {
         protected Integer doInBackground(Void... params) {
             try {
 
-                URL url = new URL(smsEndpoint);
+                URL url = new URL(callLogsEndpoint);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setDoInput(true);
                 connection.setDoOutput(true);
@@ -81,4 +85,5 @@ public class SMSActivity extends AppCompatActivity {
 
         }
     }
+
 }

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:williamchart="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Call wala card -->
+        <android.support.v7.widget.CardView
+            android:id="@+id/call_chart_card"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="1dp"
+            williamchart:cardBackgroundColor="#364d5a"
+            williamchart:cardCornerRadius="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/chart2_legend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="bottom"
+                    android:text="Average"
+                    android:textColor="#9fb7cc"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/chart2_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/chart2_legend"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
+                    android:includeFontPadding="false"
+                    android:text="00:15:31"
+                    android:textColor="#ffffff"
+                    android:textSize="30sp" />
+
+                <com.db.chart.view.LineChartView
+                    android:id="@+id/chart1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/chart2_time"
+                    android:layout_marginBottom="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="-15dp"
+                    williamchart:chart_axis="false"
+                    williamchart:chart_axisBorderSpacing="0dp"
+                    williamchart:chart_axisColor="#30547d99"
+                    williamchart:chart_labelColor="#304a00"
+                    williamchart:chart_labels="none"
+                    williamchart:chart_typeface="OpenSans-Regular.ttf" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+    <!-- Sms wala graph purple with orangle smile face -->
+        <android.support.v7.widget.CardView
+            android:id="@+id/sms_chart_card"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_margin="1dp"
+            williamchart:cardBackgroundColor="#343f57"
+            williamchart:cardCornerRadius="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.db.chart.view.LineChartView
+                    android:id="@+id/chart2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    williamchart:chart_axis="false"
+                    williamchart:chart_axisBorderSpacing="15dp"
+                    williamchart:chart_labelColor="#6a84c3" />
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+</LinearLayout>

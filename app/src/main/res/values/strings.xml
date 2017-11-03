@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Monify Watch</string>
+    <string name="title_activity_call_duration">CallDuration</string>
 </resources>

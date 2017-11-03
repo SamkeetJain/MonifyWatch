@@ -20,6 +20,8 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.sarl.monifywatch.activities.CallDuration;
+import com.sarl.monifywatch.activities.SMSActivity;
 import com.sarl.monifywatch.linechart.LineCardOne;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withTranslucentStatusBar(true)
-                .withHeaderBackground(R.drawable.reva_headerp)
 //                .withHeaderBackground(R.drawable.header)
                 /// TODO: 19-Oct-16
                 .withSavedInstance(savedInstanceState)
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                         new PrimaryDrawerItem().withName("SMS").withIcon(R.drawable.ic_sms_black_24dp).withIdentifier(1),
                         new PrimaryDrawerItem().withName("Calls").withIcon(R.drawable.ic_call_black_24dp).withIdentifier(2),
                         new PrimaryDrawerItem().withName("Location").withIcon(R.drawable.ic_location_on_black_24dp).withIdentifier(3),
-                        new PrimaryDrawerItem().withName("WhatsApp").withIcon(R.drawable.ic_giving_back_24dp).withIdentifier(4),
+                        new PrimaryDrawerItem().withName("WhatsApp").withIcon(R.drawable.ic_location_on_black_24dp).withIdentifier(4),
                         new DividerDrawerItem(),
                         new PrimaryDrawerItem().withName("Developers").withIcon(R.drawable.ic_android_black_24dp).withIdentifier(5)
                 )
@@ -68,10 +69,14 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         if (drawerItem.getIdentifier() == 1) {
-
+                            //SMS
+                            Intent i = new Intent(getApplicationContext(), SMSActivity.class);
+                            startActivity(i);
                         }
                         if (drawerItem.getIdentifier() == 2) {
-
+                            //Calls
+                            Intent i = new Intent(getApplicationContext(), CallDuration.class);
+                            startActivity(i);
                         }
                         if (drawerItem.getIdentifier() == 3) {
 

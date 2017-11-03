@@ -1,27 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:williamchart="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/chart_card"
+<LinearLayout
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
-    android:layout_margin="1dp"
-    williamchart:cardBackgroundColor="#343f57"
-    williamchart:cardCornerRadius="0dp">
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:williamchart="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
+    <android.support.v7.widget.CardView
+        android:id="@+id/chart_card"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="175dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        williamchart:cardBackgroundColor="#ffffff"
+        williamchart:cardCornerRadius="0dp">
 
-        <com.db.chart.view.LineChartView
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/state_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_toLeftOf="@+id/state_two"
+                android:layout_toStartOf="@+id/state_two"
+                android:drawableLeft="@drawable/stacked_one_point1_bck"
+                android:drawablePadding="4dp"
+                android:drawableStart="@drawable/stacked_one_point1_bck"
+                android:text="State 1"
+                android:textColor="#ff2b2b2b"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/state_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:drawableLeft="@drawable/stacked_one_point2_bck"
+                android:drawablePadding="4dp"
+                android:drawableStart="@drawable/stacked_one_point2_bck"
+                android:text="State 2"
+                android:textColor="#ff2b2b2b"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/state_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_toEndOf="@+id/state_two"
+                android:layout_toRightOf="@+id/state_two"
+                android:drawableLeft="@drawable/stacked_one_point3_bck"
+                android:drawablePadding="4dp"
+                android:drawableStart="@drawable/stacked_one_point3_bck"
+                android:text="State 3"
+                android:textColor="#ff2b2b2b"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <com.db.chart.view.StackBarChartView
             android:id="@+id/chart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/legend"
+            android:layout_marginTop="24dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             williamchart:chart_axis="false"
-            williamchart:chart_axisBorderSpacing="15dp"
-            williamchart:chart_labelColor="#6a84c3" />
-    </RelativeLayout>
+            williamchart:chart_barSpacing="15dp"
+            williamchart:chart_cornerRadius="1dp"
+            williamchart:chart_fontSize="10sp"
+            williamchart:chart_labelColor="#929b88" />
 
-</android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/chart_card1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="1dp"
+        android:layout_alignBottom="@id/chart_card"
+        williamchart:cardBackgroundColor="#E0E0E0"
+        williamchart:cardCornerRadius="0dp">
+
+            <com.db.chart.view.HorizontalBarChartView
+                android:id="@+id/chart1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                williamchart:chart_axis="false"
+                williamchart:chart_axisBorderSpacing="0dp"
+                williamchart:chart_barSpacing="4dp"
+                williamchart:chart_fontSize="12dp"
+                williamchart:chart_labelColor="#FF8E8A84"
+                williamchart:chart_typeface="OpenSans-Regular.ttf" >
+
+                <TextView
+                    android:id="@+id/value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/round_bck_2"
+                    android:elevation="5dp"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp" />
+            </com.db.chart.view.HorizontalBarChartView>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
