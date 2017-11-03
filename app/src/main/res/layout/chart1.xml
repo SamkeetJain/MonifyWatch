@@ -12,6 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <include
+            android:id="@+id/chart_toolbar"
+            layout="@layout/card_toolbar" />
+
         <com.db.chart.view.LineChartView
             android:id="@+id/chart"
             android:layout_width="match_parent"
