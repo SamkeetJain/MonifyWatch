@@ -15,9 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CardView cardView = (CardView) findViewById(R.id.chart_card);
-        LineCardOne lineCardOne = new LineCardOne(cardView,getApplicationContext());
-        lineCardOne.init();
+
 
 
     }
